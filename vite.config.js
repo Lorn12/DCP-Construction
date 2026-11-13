@@ -105,6 +105,7 @@ export default defineConfig({
       input: {
         main: resolve(root, "index.html"),
         services: resolve(root, "services.html"),
+        interiorDemolition: resolve(root, "interior-demolition.html"),
         notFound: resolve(root, "404.html"),
       },
     },
