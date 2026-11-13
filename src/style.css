@@ -2397,7 +2397,8 @@ body {
   gap: 20px;
 }
 
-@media (min-width: 1280px) {
+/* Wide columns track full nav (≥1024), same as service detail. */
+@media (min-width: 1024px) {
   .about-intro-grid {
     grid-template-columns: minmax(0, 691fr) minmax(0, 524fr);
     gap: 65px;
@@ -2510,10 +2511,10 @@ body {
   gap: 22px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .about-approach-grid {
-    grid-template-columns: 307px minmax(0, 1fr);
-    gap: 80px;
+    grid-template-columns: minmax(220px, 307px) minmax(0, 1fr);
+    gap: clamp(40px, 6vw, 80px);
     align-items: start;
   }
 }
@@ -2544,7 +2545,7 @@ body {
   gap: 20px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .about-approach-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 30px;
@@ -2574,7 +2575,7 @@ body {
   margin-bottom: 28px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .about-principles-header {
     grid-template-columns: minmax(0, 806fr) minmax(0, 429fr);
     gap: 45px;
@@ -2608,7 +2609,7 @@ body {
   gap: 20px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .about-principle-cards {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -2670,10 +2671,10 @@ body {
   margin-bottom: 28px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .about-capabilities-header {
     grid-template-columns: minmax(0, 781fr) minmax(0, 424fr);
-    gap: 75px;
+    gap: clamp(40px, 6vw, 75px);
     align-items: center;
     margin-bottom: 32px;
   }
@@ -2797,10 +2798,10 @@ body {
   margin-top: 30px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .about-markets-grid {
     grid-template-columns: minmax(0, 704fr) minmax(0, 501fr);
-    gap: 75px;
+    gap: clamp(40px, 6vw, 75px);
     align-items: center;
   }
 }
@@ -2846,10 +2847,10 @@ body {
   align-items: center;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .about-coordination-grid {
     grid-template-columns: minmax(0, 653fr) minmax(0, 573fr);
-    gap: 54px;
+    gap: clamp(32px, 4vw, 54px);
   }
 }
 
