@@ -166,7 +166,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  gap: 6px;
+  gap: 16px;
   min-height: 50px;
   width: fit-content;
   flex: 0 0 auto;
@@ -220,11 +220,13 @@ body {
 }
 
 .btn-dark {
+  width: 190px;
   background: var(--color-charcoal);
   color: #fff;
 }
 
 .btn-dark .btn-arrow {
+  width: 33px;
   background: var(--color-inset-dark);
 }
 
@@ -1704,10 +1706,12 @@ body {
 }
 
 .service-row {
+  position: relative;
   display: grid;
   gap: 20px;
   padding: 22px 0;
   border-bottom: 1px solid var(--color-row-border);
+  cursor: pointer;
 }
 
 @media (min-width: 1280px) {
@@ -1835,6 +1839,16 @@ body {
   line-height: 18px;
 }
 
+/* Stretch the row link so title, image, copy, and CTA are all clickable */
+.view-service::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.service-row:hover .view-service-arrow,
+.service-row:focus-within .view-service-arrow,
 .view-service:hover .view-service-arrow,
 .view-service:focus-visible .view-service-arrow {
   background: var(--color-orange);
