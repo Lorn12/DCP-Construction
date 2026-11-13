@@ -23,8 +23,7 @@ mobileNav?.querySelectorAll("a").forEach((link) => {
 
 document.querySelectorAll("[data-faq]").forEach((item) => {
   const trigger = item.querySelector("summary");
-  trigger?.addEventListener("click", (event) => {
-    // Keep native details behavior; sync aria after toggle.
+  trigger?.addEventListener("click", () => {
     requestAnimationFrame(() => {
       trigger.setAttribute("aria-expanded", item.open ? "true" : "false");
     });
