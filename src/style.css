@@ -606,11 +606,6 @@ body {
   background: linear-gradient(to left, #fff 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.capability-track {
-  max-width: 100%;
-  overflow: hidden;
-}
-
 .capability-marquee {
   display: flex;
   width: max-content;
@@ -671,7 +666,6 @@ body {
 .capability-item:focus-visible {
   color: var(--color-charcoal);
 }
-
 
 .about-grid,
 .services-header,
@@ -1015,11 +1009,6 @@ body {
   -webkit-transform: translate3d(-120%, 0, 0);
   animation: process-streak-run 6.4s linear infinite;
   -webkit-animation: process-streak-run 6.4s linear infinite;
-}
-
-.process-step:nth-child(1) .process-step-streak {
-  animation-delay: 0s;
-  -webkit-animation-delay: 0s;
 }
 
 .process-step:nth-child(2) .process-step-streak {
