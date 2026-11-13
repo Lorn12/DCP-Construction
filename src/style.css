@@ -576,7 +576,7 @@ body {
   }
 }
 
-/* Continuous marquee — JS transform (iOS-safe); edge fades via overlays (not mask) */
+/* Continuous marquee — pure CSS (compositor; works on iPhone Chrome/Safari) */
 .capability-viewport {
   position: relative;
   min-width: 0;
@@ -614,9 +614,31 @@ body {
 .capability-marquee {
   display: flex;
   width: max-content;
-  will-change: transform;
-  backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  animation: capability-marquee-scroll 28s linear infinite;
+  -webkit-animation: capability-marquee-scroll 28s linear infinite;
+}
+
+@keyframes capability-marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@-webkit-keyframes capability-marquee-scroll {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 .capability-group {
@@ -986,12 +1008,74 @@ body {
     rgba(255, 107, 0, 0.35) 84%,
     transparent 100%
   );
-  opacity: 0;
   pointer-events: none;
-  will-change: transform, opacity;
-  transform: translate3d(-120%, 0, 0);
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translate3d(-120%, 0, 0);
   -webkit-transform: translate3d(-120%, 0, 0);
+  animation: process-streak-run 6.4s linear infinite;
+  -webkit-animation: process-streak-run 6.4s linear infinite;
+}
+
+.process-step:nth-child(1) .process-step-streak {
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+}
+
+.process-step:nth-child(2) .process-step-streak {
+  animation-delay: 1.05s;
+  -webkit-animation-delay: 1.05s;
+}
+
+.process-step:nth-child(3) .process-step-streak {
+  animation-delay: 2.1s;
+  -webkit-animation-delay: 2.1s;
+}
+
+.process-step:nth-child(4) .process-step-streak {
+  animation-delay: 3.15s;
+  -webkit-animation-delay: 3.15s;
+}
+
+@keyframes process-streak-run {
+  0% {
+    transform: translate3d(-120%, 0, 0);
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  28% {
+    transform: translate3d(240%, 0, 0);
+    opacity: 1;
+  }
+  32%,
+  100% {
+    transform: translate3d(240%, 0, 0);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes process-streak-run {
+  0% {
+    -webkit-transform: translate3d(-120%, 0, 0);
+    transform: translate3d(-120%, 0, 0);
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  28% {
+    -webkit-transform: translate3d(240%, 0, 0);
+    transform: translate3d(240%, 0, 0);
+    opacity: 1;
+  }
+  32%,
+  100% {
+    -webkit-transform: translate3d(240%, 0, 0);
+    transform: translate3d(240%, 0, 0);
+    opacity: 0;
+  }
 }
 
 .process-step-title {
