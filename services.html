@@ -95,30 +95,44 @@
               <span></span>
             </button>
             <nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="Mobile">
-              <a href="/">Home</a>
-              <button type="button" class="mobile-services-open" data-services-open aria-expanded="false" aria-controls="services-mega" aria-current="page">
-                Services
-                <svg viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false">
-                  <path d="M1 1.2 5 4.8 9 1.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </button>
-              <a href="/#projects">Projects</a>
-              <a href="/about.html">About</a>
-              <a href="#contact">Contact</a>
-              <a class="btn btn-orange" href="#contact">
-                Request a Bid
-                <span class="btn-arrow" aria-hidden="true">
-                  <svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M1 7H16.5M11 1.5L16.5 7L11 12.5"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+              <div class="mobile-nav-panel">
+                <div class="mobile-nav-links">
+                  <a class="mobile-nav-link" href="/">Home</a>
+                  <button type="button" class="mobile-nav-link" data-services-open aria-expanded="false" aria-controls="services-mega" aria-current="page">
+                    Services
+                  </button>
+                  <a class="mobile-nav-link" href="/#projects">Projects</a>
+                  <a class="mobile-nav-link" href="/about.html">About</a>
+                  <a class="mobile-nav-link" href="#contact">Contact</a>
+                </div>
+                <div class="mobile-nav-cards">
+                  <a class="mega-card" href="/interior-demolition.html">
+                    <img
+                      class="mega-card-photo mega-card-photo--demo"
+                      src="/images/interior-demolition-jackhammer.webp"
+                      width="280"
+                      height="168"
+                      alt=""
                     />
-                  </svg>
-                </span>
-              </a>
+                    <span class="mega-card-scrim" aria-hidden="true"></span>
+                    <span class="mega-card-kicker">AVAILABLE</span>
+                    <span class="mega-card-title">Interior Demolition</span>
+                    <span class="mega-card-text">Detail page available.</span>
+                  </a>
+                  <a class="mega-card" href="#contact">
+                    <img
+                      class="mega-card-photo mega-card-photo--hub"
+                      src="/images/commercial-office-build-out-glass-partitions.webp"
+                      width="280"
+                      height="168"
+                      alt=""
+                    />
+                    <span class="mega-card-scrim" aria-hidden="true"></span>
+                    <span class="mega-card-title">Request a Bid</span>
+                    <span class="mega-card-text">We reply within one business day.</span>
+                  </a>
+                </div>
+              </div>
             </nav>
           </div>
           <div class="services-mega" id="services-mega" data-services-mega hidden>
