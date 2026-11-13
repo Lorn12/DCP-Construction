@@ -48,7 +48,21 @@
             <nav class="nav-pill" aria-label="Primary">
               <div class="nav-pill-links">
                 <a href="/">Home</a>
-                <a href="/services.html" aria-current="page">Services</a>
+                <div class="nav-services" data-services-menu>
+                  <a class="nav-services-link" href="/services.html" aria-current="page">Services</a>
+                  <button
+                    type="button"
+                    class="nav-services-toggle"
+                    data-services-toggle
+                    aria-expanded="false"
+                    aria-controls="services-mega"
+                    aria-label="Services menu"
+                  >
+                    <svg viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false">
+                      <path d="M1 1.2 5 4.8 9 1.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div>
                 <a href="/#projects">Projects</a>
                 <a href="/about.html">About</a>
                 <a href="#contact">Contact</a>
@@ -82,7 +96,12 @@
             </button>
             <nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="Mobile">
               <a href="/">Home</a>
-              <a href="/services.html" aria-current="page">Services</a>
+              <button type="button" class="mobile-services-open" data-services-open aria-expanded="false" aria-controls="services-mega" aria-current="page">
+                Services
+                <svg viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false">
+                  <path d="M1 1.2 5 4.8 9 1.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
               <a href="/#projects">Projects</a>
               <a href="/about.html">About</a>
               <a href="#contact">Contact</a>
@@ -101,6 +120,94 @@
                 </span>
               </a>
             </nav>
+          </div>
+          <div class="services-mega" id="services-mega" data-services-mega hidden>
+            <div class="services-mega-head">
+              <p class="services-mega-heading">Services</p>
+              <button type="button" class="services-mega-close" data-services-close>Close</button>
+            </div>
+            <div class="services-mega-panel">
+              <ul class="services-mega-list">
+                <li>
+                  <a class="mega-row" href="/interior-demolition.html">
+                    <span class="mega-num">01</span>
+                    <span class="mega-title">Interior Demolition</span>
+                    <span class="mega-desc mega-desc--wide">Selective interior demolition</span>
+                    <span class="mega-desc mega-desc--compact">Selective interior demolition</span>
+                  </a>
+                </li>
+                <li>
+                  <div class="mega-row mega-row--soon">
+                    <span class="mega-num">02</span>
+                    <span class="mega-title">Metal Stud Framing</span>
+                    <span class="mega-desc mega-desc--wide">Interior wall and partition framing</span>
+                    <span class="mega-desc mega-desc--compact">Wall and partition framing</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="mega-row mega-row--soon">
+                    <span class="mega-num">03</span>
+                    <span class="mega-title">Drywall / Tape &amp; Float</span>
+                    <span class="mega-desc mega-desc--wide">Drywall installation and finishing</span>
+                    <span class="mega-desc mega-desc--compact">Installation and finishing</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="mega-row mega-row--soon">
+                    <span class="mega-num">04</span>
+                    <span class="mega-title">Painting</span>
+                    <span class="mega-desc mega-desc--wide">Interior painting and related finishes</span>
+                    <span class="mega-desc mega-desc--compact">Interior painting &amp; finishes</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="mega-row mega-row--soon">
+                    <span class="mega-num">05</span>
+                    <span class="mega-title">Acoustical Ceilings</span>
+                    <span class="mega-desc mega-desc--wide">Ceiling systems for interior spaces</span>
+                    <span class="mega-desc mega-desc--compact">Ceiling systems</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="mega-row mega-row--soon">
+                    <span class="mega-num">06</span>
+                    <span class="mega-title">Doors / Frames / Hardware</span>
+                    <span class="mega-desc mega-desc--wide">Interior doors, frames and hardware</span>
+                    <span class="mega-desc mega-desc--compact">Doors, frames, hardware</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="services-mega-cards">
+                <a class="mega-card" href="/interior-demolition.html">
+                  <img
+                    class="mega-card-photo mega-card-photo--demo"
+                    src="/images/interior-demolition-jackhammer.webp"
+                    width="280"
+                    height="340"
+                    alt=""
+                  />
+                  <span class="mega-card-scrim" aria-hidden="true"></span>
+                  <span class="mega-card-kicker">AVAILABLE</span>
+                  <span class="mega-card-title">Interior Demolition</span>
+                  <span class="mega-card-text mega-card-text--wide">Selective interior demolition for construction and improvements.</span>
+                  <span class="mega-card-text mega-card-text--compact">Detail page available.</span>
+                </a>
+                <a class="mega-card" href="/services.html">
+                  <img
+                    class="mega-card-photo mega-card-photo--hub"
+                    src="/images/commercial-office-build-out-glass-partitions.webp"
+                    width="280"
+                    height="340"
+                    alt=""
+                  />
+                  <span class="mega-card-scrim" aria-hidden="true"></span>
+                  <span class="mega-card-kicker">SERVICES HUB</span>
+                  <span class="mega-card-title">View all Services</span>
+                  <span class="mega-card-text mega-card-text--wide">Full trade listing for commercial and industrial interiors.</span>
+                  <span class="mega-card-text mega-card-text--compact">Services hub listing.</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </header>
