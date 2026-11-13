@@ -851,6 +851,15 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.service-card:hover .card-action-icon,
+.service-card:focus-within .card-action-icon,
+.card-action:hover .card-action-icon,
+.card-action:focus-visible .card-action-icon,
+.card-action:active .card-action-icon {
+  background: var(--color-orange);
 }
 
 .card-action-icon svg {
@@ -994,53 +1003,49 @@ body {
 
 .process-step-line {
   position: relative;
-  height: 1px;
+  height: 2px;
   margin-bottom: 16px;
-  background: var(--color-light-subtle);
   overflow: hidden;
+  background: var(--color-light-subtle);
 }
 
 .process-step-streak {
   position: absolute;
-  top: 50%;
-  left: 0;
-  width: 60%;
-  height: 7px;
-  margin-top: -3.5px;
-  border-radius: 999px;
+  inset: 0 auto 0 0;
+  width: 55%;
+  height: 100%;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 107, 0, 0.25) 20%,
-    #ff6b00 45%,
-    #ff6b00 55%,
-    rgba(255, 107, 0, 0.25) 80%,
+    rgba(255, 107, 0, 0.35) 16%,
+    #ff6b00 38%,
+    #ff6b00 62%,
+    rgba(255, 107, 0, 0.35) 84%,
     transparent 100%
   );
-  box-shadow:
-    0 0 14px 3px rgba(255, 107, 0, 0.7),
-    0 0 28px 8px rgba(255, 107, 0, 0.38);
   opacity: 0;
+  pointer-events: none;
   will-change: transform, opacity;
-  animation: process-streak 9s linear infinite;
-  animation-delay: calc(var(--step, 0) * 2.25s);
+  /* Overlap handoff across steps; clipped so it never spills past the line */
+  animation: process-streak 6.4s linear infinite;
+  animation-delay: calc(var(--step, 0) * 1.05s);
 }
 
 @keyframes process-streak {
   0% {
-    transform: translateX(-110%);
+    transform: translateX(-120%);
     opacity: 0;
   }
-  3% {
+  2% {
     opacity: 1;
   }
-  22% {
-    transform: translateX(260%);
+  30% {
+    transform: translateX(240%);
     opacity: 1;
   }
-  25%,
+  34%,
   100% {
-    transform: translateX(260%);
+    transform: translateX(240%);
     opacity: 0;
   }
 }
