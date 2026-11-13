@@ -19,6 +19,7 @@
   --color-faq-icon: #e9ecea;
   --color-dark-soft: #282b2c;
   --color-inset-dark: #2a2d2e;
+  --color-dark-text-muted: #aeb4ba;
   --font-sans: Inter, system-ui, sans-serif;
   --breakpoint-sm: 400px;
   --breakpoint-md: 768px;
@@ -201,6 +202,15 @@ body {
 
 .btn-orange {
   background: var(--color-orange);
+  color: #fff;
+}
+
+.btn-orange .btn-arrow {
+  background: var(--color-orange);
+}
+
+.chip-dark {
+  background: var(--color-chip-dark);
   color: #fff;
 }
 
@@ -645,11 +655,6 @@ body {
   .faq-grid {
     grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.1fr);
     gap: 77px;
-  }
-
-  .bid-grid {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
-    gap: 72px;
   }
 }
 
@@ -1109,13 +1114,76 @@ body {
   background: var(--color-charcoal);
   color: #fff;
   border-radius: 10px;
-  padding: 40px 20px;
+  padding: 30px 22px;
 }
 
 @media (min-width: 768px) {
   .bid-panel {
     padding: 48px 40px;
   }
+}
+
+.bid-grid {
+  gap: 40px;
+}
+
+@media (min-width: 1280px) {
+  .bid-grid {
+    grid-template-columns: minmax(0, 458fr) minmax(0, 520fr);
+    gap: 62px;
+    align-items: start;
+  }
+}
+
+@media (min-width: 1440px) {
+  .bid-grid {
+    grid-template-columns: minmax(0, 528fr) minmax(0, 600fr);
+    gap: 72px;
+  }
+}
+
+.bid-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 1280px) {
+  .bid-intro {
+    gap: 18px;
+  }
+}
+
+.bid-title {
+  font-size: 34px;
+  line-height: 39px;
+  font-weight: 700;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .bid-title {
+    font-size: 40px;
+    line-height: 46px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .bid-title {
+    font-size: 44px;
+    line-height: 51px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .bid-title {
+    font-size: 48px;
+    line-height: 55px;
+  }
+}
+
+.bid-title-muted {
+  color: var(--color-dark-text-muted);
 }
 
 .bid-panel .body-copy {
@@ -1125,6 +1193,34 @@ body {
 .bid-form {
   display: grid;
   gap: 25px;
+}
+
+.bid-form-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .bid-form-actions {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+
+.bid-reply {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--color-dark-text-muted);
+}
+
+.bid-submit {
+  width: 210px;
 }
 
 .form-row {
@@ -1175,6 +1271,16 @@ body {
 .field select:valid,
 .field select:focus {
   color: #fff;
+}
+
+/* Native dropdown panels are light; keep option text dark so choices stay readable */
+.field select option {
+  color: var(--color-charcoal);
+  background: #fff;
+}
+
+.field select option:disabled {
+  color: var(--color-grey-300);
 }
 
 .field textarea {

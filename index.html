@@ -631,98 +631,107 @@
 
         <section class="section-pad" id="contact">
           <div class="content-shell">
-          <div class="bid-panel">
-            <div class="bid-grid">
-              <div>
-                <span class="chip" style="background: var(--color-chip-dark); color: #fff">
-                  <span class="chip-dot">●</span>&nbsp;&nbsp;REQUEST A BID
-                </span>
-                <h2 class="section-title" style="margin-top: 18px; color: #fff; font-size: 36px; line-height: 42px">
-                  Have an interior<br />
-                  construction project?<br />
-                  Let’s talk.
-                </h2>
-                <p class="body-copy" style="margin-top: 18px">
-                  Tell us about your space, scope and timeline. Share the information available so DCP can
-                  review your request.
-                </p>
-              </div>
-
-              <form class="bid-form" data-bid-form novalidate>
-                <div class="form-row two">
-                  <div class="field">
-                    <label for="name">Name</label>
-                    <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
-                  </div>
-                  <div class="field">
-                    <label for="email">Email</label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autocomplete="email"
-                      placeholder="you@company.com"
-                      required
-                    />
-                  </div>
+            <div class="bid-panel">
+              <div class="bid-grid">
+                <div class="bid-intro">
+                  <span class="chip chip-dark">
+                    <span class="chip-dot">●</span>&nbsp;&nbsp;REQUEST A BID
+                  </span>
+                  <h2 class="bid-title">
+                    Have an interior<br />
+                    construction project?<br />
+                    <span class="bid-title-muted">Let’s talk.</span>
+                  </h2>
+                  <p class="body-copy">
+                    Tell us about your space, scope and timeline. Share the information available so DCP can
+                    review your request.
+                  </p>
                 </div>
-                <div class="form-row two">
+
+                <form class="bid-form" data-bid-form novalidate>
+                  <div class="form-row two">
+                    <div class="field">
+                      <label for="name">Name</label>
+                      <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+                    </div>
+                    <div class="field">
+                      <label for="email">Email</label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        autocomplete="email"
+                        placeholder="you@company.com"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="form-row two">
+                    <div class="field">
+                      <label for="projectType">Project Type</label>
+                      <select id="projectType" name="projectType" required>
+                        <option value="" selected disabled>Select a project type</option>
+                        <option>Office Build-Out</option>
+                        <option>Industrial Interior</option>
+                        <option>Tenant Improvement</option>
+                        <option>Other Commercial Interior</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="location">Project Location</label>
+                      <input
+                        id="location"
+                        name="location"
+                        type="text"
+                        autocomplete="address-level2"
+                        placeholder="City and state"
+                        required
+                      />
+                    </div>
+                  </div>
                   <div class="field">
-                    <label for="projectType">Project Type</label>
-                    <select id="projectType" name="projectType" required>
-                      <option value="" selected disabled>Select a project type</option>
-                      <option>Office Build-Out</option>
-                      <option>Industrial Interior</option>
-                      <option>Tenant Improvement</option>
-                      <option>Other Commercial Interior</option>
+                    <label for="trades">Requested Trades</label>
+                    <select id="trades" name="trades" required>
+                      <option value="" selected disabled>Select the required interior trades</option>
+                      <option>Interior Demolition</option>
+                      <option>Metal Stud Framing</option>
+                      <option>Drywall / Tape &amp; Float</option>
+                      <option>Painting</option>
+                      <option>Acoustical Ceilings</option>
+                      <option>Doors / Frames / Hardware</option>
+                      <option>Multiple Trades</option>
                     </select>
                   </div>
                   <div class="field">
-                    <label for="location">Project Location</label>
-                    <input
-                      id="location"
-                      name="location"
-                      type="text"
-                      autocomplete="address-level2"
-                      placeholder="City and state"
+                    <label for="details">Project Details</label>
+                    <textarea
+                      id="details"
+                      name="details"
+                      placeholder="Briefly describe your project and bid timing"
                       required
-                    />
+                    ></textarea>
                   </div>
-                </div>
-                <div class="field">
-                  <label for="trades">Requested Trades</label>
-                  <select id="trades" name="trades" required>
-                    <option value="" selected disabled>Select the required interior trades</option>
-                    <option>Interior Demolition</option>
-                    <option>Metal Stud Framing</option>
-                    <option>Drywall / Tape &amp; Float</option>
-                    <option>Painting</option>
-                    <option>Acoustical Ceilings</option>
-                    <option>Doors / Frames / Hardware</option>
-                    <option>Multiple Trades</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="details">Project Details</label>
-                  <textarea
-                    id="details"
-                    name="details"
-                    placeholder="Briefly describe your project and bid timing"
-                    required
-                  ></textarea>
-                </div>
-                <button class="btn btn-orange" type="submit">
-                  Request a Bid
-                  <span class="btn-arrow" aria-hidden="true">
-                <svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
-                </button>
-                <p class="form-status" data-status aria-live="polite"></p>
-              </form>
+                  <div class="bid-form-actions">
+                    <p class="bid-reply">WE REPLY WITHIN ONE BUSINESS DAY.</p>
+                    <button class="btn btn-orange bid-submit" type="submit">
+                      Request a Bid
+                      <span class="btn-arrow" aria-hidden="true">
+                        <svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M1 7H16.5M11 1.5L16.5 7L11 12.5"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                  <p class="form-status" data-status aria-live="polite"></p>
+                </form>
+              </div>
             </div>
-          </div>
           </div>
         </section>
       </main>
