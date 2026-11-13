@@ -2,6 +2,10 @@
 
 Marketing site for DCP Construction — commercial and industrial interior trades in Houston and surrounding Texas markets.
 
+**Live preview (phone-friendly):** https://lorn12.github.io/DCP-Construction/
+
+Updates on every push to `main` (noindex preview — not the production domain).
+
 ## Stack
 
 - Vite + Tailwind CSS v4
