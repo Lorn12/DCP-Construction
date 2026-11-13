@@ -129,6 +129,7 @@ export default defineConfig({
         main: resolve(root, "index.html"),
         services: resolve(root, "services.html"),
         about: resolve(root, "about.html"),
+        contact: resolve(root, "contact.html"),
         interiorDemolition: resolve(root, "interior-demolition.html"),
         notFound: resolve(root, "404.html"),
       },

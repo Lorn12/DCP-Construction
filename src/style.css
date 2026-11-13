@@ -2123,6 +2123,23 @@ a.mega-row:focus-visible {
   color: var(--color-support-400);
 }
 
+.services-breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.services-breadcrumb a:hover,
+.services-breadcrumb a:focus-visible {
+  color: var(--color-charcoal);
+}
+
+.services-intro-copy .bid-reply {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--color-text-secondary);
+}
+
 @media (min-width: 768px) {
   .services-breadcrumb {
     margin-bottom: 40px;
@@ -3018,6 +3035,164 @@ a.mega-row:focus-visible {
   height: 208px;
   object-fit: cover;
   border-radius: 9px;
+}
+
+.contact-review {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 720px;
+  overflow: hidden;
+  color: #fff;
+}
+
+.contact-review-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 32% 40%;
+}
+
+.contact-review-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(23, 23, 23, 0) 46%, rgba(23, 23, 23, 0.62) 100%);
+  pointer-events: none;
+}
+
+.contact-review-shell {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding-block: 32px;
+}
+
+.contact-review-stars {
+  margin: 0;
+  color: var(--color-orange);
+}
+
+.contact-review-stars span {
+  display: flex;
+  gap: 6px;
+}
+
+.contact-review-stars svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
+.contact-review-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+  padding: 22px;
+  border-radius: 16px;
+  background: rgba(39, 41, 41, 0.88);
+}
+
+.contact-review-chip {
+  background: var(--color-chip-dark);
+  color: #fff;
+}
+
+.contact-review-card blockquote {
+  margin: 0;
+}
+
+.contact-review-card blockquote p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.contact-review-person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-review-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: #3d4344;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.contact-review-name,
+.contact-review-role {
+  display: block;
+}
+
+.contact-review-name {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.contact-review-role {
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-dark-text-muted);
+}
+
+@media (min-width: 768px) {
+  .contact-review {
+    min-height: 560px;
+  }
+
+  .contact-review-shell {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    padding-block: 40px;
+  }
+
+  .contact-review-stars svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .contact-review-card {
+    width: min(100%, 440px);
+    padding: 28px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .contact-review {
+    min-height: 640px;
+  }
+
+  .contact-review-shell {
+    padding-block: 48px;
+  }
+
+  .contact-review-stars svg {
+    width: 42px;
+    height: 42px;
+  }
 }
 
 @media (min-width: 768px) {
