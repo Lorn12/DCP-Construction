@@ -1507,6 +1507,13 @@ body {
   width: 194px;
 }
 
+/* Beat .footer-grid a muted link styles so CTA matches other orange buttons. */
+.footer-grid a.btn-orange {
+  color: #fff;
+  font-size: 14px;
+  line-height: 17px;
+}
+
 .footer-bottom {
   margin-top: 40px;
   padding-top: 40px;
