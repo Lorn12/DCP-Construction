@@ -104,6 +104,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(root, "index.html"),
+        services: resolve(root, "services.html"),
         notFound: resolve(root, "404.html"),
       },
     },

@@ -129,18 +129,8 @@
     <a class="skip-link" href="#main">Skip to main content</a>
 
     <div class="page-shell">
-      <header class="hero" id="top">
-        <img
-          class="hero-media"
-          src="/images/hero-commercial-interior-construction-worker.webp"
-          width="1440"
-          height="783"
-          alt="Construction worker in a hard hat and safety vest standing in a commercial building under construction"
-          fetchpriority="high"
-        />
-        <div class="hero-overlay" aria-hidden="true"></div>
-
-        <div class="content-shell hero-shell">
+      <header class="site-nav site-nav--home" data-site-nav-home>
+        <div class="content-shell">
           <div class="site-header">
             <a class="logo-badge" href="/" aria-label="DCP Construction home">
               <img src="/images/dcp-logo.svg" width="152" height="59" alt="DCP Construction" />
@@ -148,8 +138,8 @@
             <div class="header-spacer" aria-hidden="true"></div>
             <nav class="nav-pill" aria-label="Primary">
               <div class="nav-pill-links">
-                <a href="/">Home</a>
-                <a href="#services">Services</a>
+                <a href="/" aria-current="page">Home</a>
+                <a href="/services.html">Services</a>
                 <a href="#projects">Projects</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
@@ -176,8 +166,8 @@
               <span></span>
             </button>
             <nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="Mobile">
-              <a href="/">Home</a>
-              <a href="#services">Services</a>
+              <a href="/" aria-current="page">Home</a>
+              <a href="/services.html">Services</a>
               <a href="#projects">Projects</a>
               <a href="#about">About</a>
               <a href="#contact">Contact</a>
@@ -191,6 +181,22 @@
               </a>
             </nav>
           </div>
+        </div>
+      </header>
+
+      <section class="hero" id="top">
+        <img
+          class="hero-media"
+          src="/images/hero-commercial-interior-construction-worker.webp"
+          width="1440"
+          height="783"
+          alt="Construction worker in a hard hat and safety vest standing in a commercial building under construction"
+          fetchpriority="high"
+        />
+        <div class="hero-overlay" aria-hidden="true"></div>
+
+        <div class="content-shell hero-shell">
+          <div class="site-header-spacer" aria-hidden="true"></div>
 
           <div class="hero-content">
             <span class="chip chip-dark">
@@ -227,10 +233,10 @@
             </div>
           </div>
         </div>
-      </header>
+      </section>
 
       <main id="main">
-        <section class="capability-strip" aria-label="Interior capabilities">
+        <section class="capability-strip" aria-label="Interior capabilities" data-nav-solid-at>
           <div class="content-shell capability-inner">
             <span class="chip" style="background: var(--color-border-light)">
               <span class="chip-dot">●</span>&nbsp;&nbsp;INTERIOR CAPABILITIES
@@ -238,20 +244,20 @@
             <div class="capability-viewport">
               <div class="capability-track">
                 <div class="capability-group">
-                  <a class="capability-item" href="#services">Interior Demolition</a>
-                  <a class="capability-item" href="#services">Metal Stud Framing</a>
-                  <a class="capability-item" href="#services">Drywall / Tape &amp; Float</a>
-                  <a class="capability-item" href="#services">Acoustical Ceilings</a>
-                  <a class="capability-item" href="#services">Painting</a>
-                  <a class="capability-item" href="#services">Doors / Frames / Hardware</a>
+                  <a class="capability-item" href="/services.html#interior-demolition">Interior Demolition</a>
+                  <a class="capability-item" href="/services.html#metal-stud-framing">Metal Stud Framing</a>
+                  <a class="capability-item" href="/services.html#drywall-tape-float">Drywall / Tape &amp; Float</a>
+                  <a class="capability-item" href="/services.html#acoustical-ceilings">Acoustical Ceilings</a>
+                  <a class="capability-item" href="/services.html#painting">Painting</a>
+                  <a class="capability-item" href="/services.html#doors-frames-hardware">Doors / Frames / Hardware</a>
                 </div>
                 <div class="capability-group" aria-hidden="true">
-                  <a class="capability-item" href="#services" tabindex="-1">Interior Demolition</a>
-                  <a class="capability-item" href="#services" tabindex="-1">Metal Stud Framing</a>
-                  <a class="capability-item" href="#services" tabindex="-1">Drywall / Tape &amp; Float</a>
-                  <a class="capability-item" href="#services" tabindex="-1">Acoustical Ceilings</a>
-                  <a class="capability-item" href="#services" tabindex="-1">Painting</a>
-                  <a class="capability-item" href="#services" tabindex="-1">Doors / Frames / Hardware</a>
+                  <a class="capability-item" href="/services.html#interior-demolition" tabindex="-1">Interior Demolition</a>
+                  <a class="capability-item" href="/services.html#metal-stud-framing" tabindex="-1">Metal Stud Framing</a>
+                  <a class="capability-item" href="/services.html#drywall-tape-float" tabindex="-1">Drywall / Tape &amp; Float</a>
+                  <a class="capability-item" href="/services.html#acoustical-ceilings" tabindex="-1">Acoustical Ceilings</a>
+                  <a class="capability-item" href="/services.html#painting" tabindex="-1">Painting</a>
+                  <a class="capability-item" href="/services.html#doors-frames-hardware" tabindex="-1">Doors / Frames / Hardware</a>
                 </div>
               </div>
             </div>
@@ -324,7 +330,7 @@
                   </div>
                   <p>Selective interior demolition for construction and improvements.</p>
                 </div>
-                <a class="card-action" href="#contact">
+                <a class="card-action" href="/services.html#interior-demolition">
                   Learn More
                   <span class="card-action-icon" aria-hidden="true"><svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
                 </a>
@@ -347,7 +353,7 @@
                   </div>
                   <p>Interior wall and partition framing.</p>
                 </div>
-                <a class="card-action" href="#contact">
+                <a class="card-action" href="/services.html#metal-stud-framing">
                   Learn More
                   <span class="card-action-icon" aria-hidden="true"><svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
                 </a>
@@ -370,7 +376,7 @@
                   </div>
                   <p>Drywall installation and finishing.</p>
                 </div>
-                <a class="card-action" href="#contact">
+                <a class="card-action" href="/services.html#drywall-tape-float">
                   Learn More
                   <span class="card-action-icon" aria-hidden="true"><svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
                 </a>
@@ -393,7 +399,7 @@
                   </div>
                   <p>Interior painting and related finishes.</p>
                 </div>
-                <a class="card-action" href="#contact">
+                <a class="card-action" href="/services.html#painting">
                   Learn More
                   <span class="card-action-icon" aria-hidden="true"><svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
                 </a>
@@ -416,7 +422,7 @@
                   </div>
                   <p>Acoustical ceiling systems for interior spaces.</p>
                 </div>
-                <a class="card-action" href="#contact">
+                <a class="card-action" href="/services.html#acoustical-ceilings">
                   Learn More
                   <span class="card-action-icon" aria-hidden="true"><svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
                 </a>
@@ -439,7 +445,7 @@
                   </div>
                   <p>Interior doors, frames and hardware.</p>
                 </div>
-                <a class="card-action" href="#contact">
+                <a class="card-action" href="/services.html#doors-frames-hardware">
                   Learn More
                   <span class="card-action-icon" aria-hidden="true"><svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
                 </a>
@@ -753,19 +759,19 @@
             <div>
               <h2>Company</h2>
               <p><a href="/">Home</a></p>
-              <p><a href="#services">Services</a></p>
+              <p><a href="/services.html">Services</a></p>
               <p><a href="#projects">Projects</a></p>
               <p><a href="#about">About</a></p>
               <p><a href="#contact">Contact</a></p>
             </div>
             <div class="services-links">
               <h2>Services</h2>
-              <p>Interior Demolition</p>
-              <p>Metal Stud Framing</p>
-              <p>Drywall / Tape &amp; Float</p>
-              <p>Painting</p>
-              <p>Acoustical Ceilings</p>
-              <p>Doors / Frames / Hardware</p>
+              <p><a href="/services.html#interior-demolition">Interior Demolition</a></p>
+              <p><a href="/services.html#metal-stud-framing">Metal Stud Framing</a></p>
+              <p><a href="/services.html#drywall-tape-float">Drywall / Tape &amp; Float</a></p>
+              <p><a href="/services.html#painting">Painting</a></p>
+              <p><a href="/services.html#acoustical-ceilings">Acoustical Ceilings</a></p>
+              <p><a href="/services.html#doors-frames-hardware">Doors / Frames / Hardware</a></p>
             </div>
             <div class="footer-territory">
               <h2>Houston / Texas</h2>

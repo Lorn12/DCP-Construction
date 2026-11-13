@@ -4,9 +4,18 @@ const menuToggle = document.querySelector("[data-menu-toggle]");
 const mobileNav = document.querySelector("[data-mobile-nav]");
 const status = document.querySelector("[data-status]");
 const bidForm = document.querySelector("[data-bid-form]");
+const homeNav = document.querySelector("[data-site-nav-home]");
+const navSolidAt = document.querySelector("[data-nav-solid-at]");
 
 function setStatus(message) {
   if (status) status.textContent = message;
+}
+
+function syncHomeNavSolid() {
+  if (!homeNav || !navSolidAt) return;
+  const navBottom = homeNav.getBoundingClientRect().bottom;
+  const triggerTop = navSolidAt.getBoundingClientRect().top;
+  homeNav.classList.toggle("is-solid", triggerTop <= navBottom);
 }
 
 menuToggle?.addEventListener("click", () => {
@@ -20,6 +29,12 @@ mobileNav?.querySelectorAll("a").forEach((link) => {
     menuToggle?.setAttribute("aria-expanded", "false");
   });
 });
+
+if (homeNav && navSolidAt) {
+  syncHomeNavSolid();
+  window.addEventListener("scroll", syncHomeNavSolid, { passive: true });
+  window.addEventListener("resize", syncHomeNavSolid);
+}
 
 document.querySelectorAll("[data-faq]").forEach((item) => {
   const trigger = item.querySelector("summary");
