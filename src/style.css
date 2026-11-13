@@ -103,7 +103,11 @@ body {
 .chip {
   display: inline-flex;
   align-items: center;
-  height: 28px;
+  width: fit-content;
+  max-width: max-content;
+  flex: 0 0 auto;
+  align-self: flex-start;
+  height: 29px;
   padding: 6px 10px;
   border-radius: 4px;
   font-size: 12px;
@@ -123,6 +127,8 @@ body {
   justify-content: space-between;
   gap: 6px;
   min-height: 50px;
+  width: fit-content;
+  flex: 0 0 auto;
   padding: 5px 5px 5px 16px;
   border-radius: 5px;
   font-size: 14px;
@@ -149,8 +155,13 @@ body {
   width: 34px;
   height: 40px;
   border-radius: 4px;
-  font-size: 18px;
-  line-height: 22px;
+  flex-shrink: 0;
+}
+
+.btn-arrow svg {
+  display: block;
+  width: 18px;
+  height: 14px;
 }
 
 .btn-orange {
@@ -226,6 +237,14 @@ body {
   display: flex;
   align-items: center;
   gap: 18px;
+  width: 100%;
+  max-width: 1280px;
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+  min-width: 1px;
+  height: 1px;
 }
 
 .logo-badge {
@@ -237,7 +256,7 @@ body {
   width: 109px;
   height: 44px;
   padding: 3px 6px;
-  flex-shrink: 0;
+  flex: 0 0 auto;
 }
 
 @media (min-width: 768px) {
@@ -257,10 +276,13 @@ body {
 .nav-pill {
   display: none;
   align-items: center;
+  flex: 0 0 auto;
+  width: max-content;
+  max-width: 100%;
   background: var(--color-nav);
   border-radius: 5px;
   overflow: hidden;
-  min-height: 50px;
+  height: 50px;
   padding-left: 15px;
 }
 
@@ -270,18 +292,29 @@ body {
   }
 }
 
-.nav-pill a {
+.nav-pill-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex: 0 0 auto;
+}
+
+.nav-pill-links a {
   color: #fff;
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
   line-height: 16px;
-  padding: 0 12px;
+  padding: 0 14px;
   text-transform: uppercase;
+  white-space: nowrap;
+  flex: 0 0 auto;
 }
 
 .nav-pill .btn {
-  margin-left: 8px;
+  margin-left: 0;
+  flex: 0 0 auto;
+  border-radius: 5px;
 }
 
 .menu-toggle {
@@ -346,6 +379,7 @@ body {
   max-width: 810px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 22px;
 }
 
@@ -604,11 +638,11 @@ body {
   justify-content: center;
 }
 
-.card-action-icon span {
-  display: inline-block;
+.card-action-icon svg {
+  display: block;
+  width: 14px;
+  height: 11px;
   transform: rotate(-45deg);
-  font-size: 18px;
-  line-height: 1;
 }
 
 .work-section {
