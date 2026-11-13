@@ -526,6 +526,11 @@ body {
   outline-offset: 2px;
 }
 
+.mobile-nav-link[data-services-open]:focus,
+.mobile-nav-link[data-services-open]:focus-visible {
+  outline: none;
+}
+
 .mobile-nav-cards {
   display: flex;
   flex-direction: column;
@@ -630,21 +635,28 @@ body {
 }
 
 .services-mega-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
   margin: 0;
   padding: 0;
   border: 0;
   background: none;
   color: var(--color-orange);
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 16px;
   cursor: pointer;
 }
 
-.services-mega-close:hover,
+.services-mega-close:focus,
 .services-mega-close:focus-visible {
-  text-decoration: underline;
+  outline: none;
+}
+
+.services-mega-close svg {
+  display: block;
+  width: 22px;
+  height: 22px;
 }
 
 .services-mega-panel {
