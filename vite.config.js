@@ -90,11 +90,34 @@ function siteIndexingPlugin(site) {
   };
 }
 
+/** Prefix root-absolute href/src with Vite base so GitHub Pages (/DCP-Construction/) links work. */
+function htmlBaseUrlsPlugin(base) {
+  return {
+    name: "html-base-urls",
+    transformIndexHtml: {
+      // After Vite rewrites module/asset URLs, fix remaining root-absolute page/image links.
+      order: "post",
+      handler(html) {
+        if (!base || base === "/") return html;
+        const basePath = base.replace(/\/$/, "");
+        const alreadyBased = basePath.replace(/^\//, "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        const re = new RegExp(`\\b(href|src)="/(?!/|${alreadyBased}/)`, "g");
+        return html.replace(re, `$1="${base}`);
+      },
+    },
+  };
+}
+
 const site = siteTarget();
 
 export default defineConfig({
   appType: "mpa",
-  plugins: [tailwindcss(), notFoundFallbackPlugin(), siteIndexingPlugin(site)],
+  plugins: [
+    tailwindcss(),
+    htmlBaseUrlsPlugin(site.base),
+    notFoundFallbackPlugin(),
+    siteIndexingPlugin(site),
+  ],
   base: site.base,
   define: {
     "import.meta.env.VITE_SITE_URL": JSON.stringify(site.siteUrl),
