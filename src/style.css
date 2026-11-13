@@ -25,6 +25,17 @@
   --breakpoint-xl: 1440px;
 }
 
+:root {
+  /* Handoff + Home frames: gutters 20@400 → 40@768 → 80@1280+, fluid between */
+  --gutter-mobile: 20px;
+  --gutter-tablet: 40px;
+  --gutter-desktop: 80px;
+  --content-max: 1280px;
+  --page-gutter: var(--gutter-mobile);
+  /* Interior section vertical pad: 40 mobile / 60 tablet / 80 desktop */
+  --section-pad-y: 40px;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -80,24 +91,47 @@ body {
 
 .page-shell {
   width: 100%;
-  max-width: 1440px;
+}
+
+/* Full-bleed section backgrounds; content centered and capped at 1280px.
+   From DCP / CURSOR DEVELOPMENT HANDOFF — INTERNAL (8671:422). */
+.content-shell {
+  box-sizing: border-box;
+  width: min(100% - (var(--page-gutter) * 2), var(--content-max));
   margin-inline: auto;
 }
 
-.section-pad {
-  padding: 60px 20px;
+@media (min-width: 400px) {
+  :root {
+    --page-gutter: clamp(
+      var(--gutter-mobile),
+      calc(var(--gutter-mobile) + (100vw - 400px) * (20 / 368)),
+      var(--gutter-tablet)
+    );
+  }
 }
 
 @media (min-width: 768px) {
-  .section-pad {
-    padding: 80px 40px;
+  :root {
+    --page-gutter: clamp(
+      var(--gutter-tablet),
+      calc(var(--gutter-tablet) + (100vw - 768px) * (40 / 512)),
+      var(--gutter-desktop)
+    );
+    --section-pad-y: 60px;
   }
 }
 
 @media (min-width: 1280px) {
-  .section-pad {
-    padding: 80px;
+  :root {
+    --page-gutter: var(--gutter-desktop);
+    --section-pad-y: 80px;
   }
+}
+
+.section-pad {
+  padding-block: var(--section-pad-y);
+  padding-inline: 0;
 }
 
 .chip {
@@ -175,9 +209,14 @@ body {
 }
 
 .btn-ghost {
-  background: var(--color-nav);
+  /* Home hero “View Services” — Figma 8108:30 transparent fill + #8b9292 border */
+  background: transparent;
   color: #fff;
   border: 1px solid #8b9292;
+}
+
+.btn-ghost .btn-arrow {
+  background: var(--color-nav);
 }
 
 .btn-white {
@@ -192,22 +231,23 @@ body {
 .hero {
   position: relative;
   overflow: hidden;
+  width: 100%;
   min-height: 658px;
-  padding: 18px 20px 94px;
+  padding: 18px 0 94px;
   color: #fff;
 }
 
 @media (min-width: 768px) {
   .hero {
     min-height: 720px;
-    padding: 18px 40px 110px;
+    padding: 18px 0 110px;
   }
 }
 
 @media (min-width: 1280px) {
   .hero {
     min-height: 783px;
-    padding: 18px 80px 124px;
+    padding: 18px 0 124px;
   }
 }
 
@@ -216,7 +256,9 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
+  max-width: none;
   object-fit: cover;
+  object-position: center;
 }
 
 .hero-overlay {
@@ -231,6 +273,11 @@ body {
   );
 }
 
+.hero-shell {
+  position: relative;
+  z-index: 2;
+}
+
 .site-header {
   position: relative;
   z-index: 2;
@@ -238,7 +285,6 @@ body {
   align-items: center;
   gap: 18px;
   width: 100%;
-  max-width: 1280px;
 }
 
 .header-spacer {
@@ -390,11 +436,21 @@ body {
   }
 }
 
+.hero-copy-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+}
+
 .hero h1 {
+  /* Figma Home hero H1 is 810px wide with three designed lines — not 16ch */
+  width: 100%;
+  max-width: 810px;
   font-size: 35px;
   line-height: 40px;
   font-weight: 700;
-  max-width: 16ch;
 }
 
 @media (min-width: 768px) {
@@ -428,38 +484,69 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-top: 18px;
 }
 
 .capability-strip {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 25px 20px;
+  width: 100%;
+  padding-block: 25px;
+  padding-inline: 0;
   background: #fff;
 }
 
+.capability-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 @media (min-width: 768px) {
-  .capability-strip {
+  .capability-inner {
     flex-direction: row;
     align-items: center;
     gap: 20px;
-    padding: 25px 40px;
   }
 }
 
-@media (min-width: 1280px) {
-  .capability-strip {
-    padding: 25px 80px;
-  }
+/* Continuous marquee viewport — soft edge fade, no scrollbar */
+.capability-viewport {
+  position: relative;
+  min-width: 0;
+  flex: 1 1 auto;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    rgba(0, 0, 0, 0.35) 36px,
+    #000 96px,
+    #000 calc(100% - 96px),
+    rgba(0, 0, 0, 0.35) calc(100% - 36px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    rgba(0, 0, 0, 0.35) 36px,
+    #000 96px,
+    #000 calc(100% - 96px),
+    rgba(0, 0, 0, 0.35) calc(100% - 36px),
+    transparent 100%
+  );
 }
 
 .capability-track {
   display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: capability-marquee 40s linear infinite;
+}
+
+.capability-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
   gap: 12px;
-  overflow-x: auto;
-  padding-bottom: 4px;
-  scrollbar-width: thin;
+  padding-right: 12px;
 }
 
 .capability-item {
@@ -470,7 +557,50 @@ body {
   font-size: 14px;
   font-weight: 600;
   line-height: 17px;
+  color: var(--color-grey-200);
+  transition: color 0.15s ease;
+}
+
+.capability-item:hover,
+.capability-item:focus-visible {
   color: var(--color-charcoal);
+}
+
+.capability-viewport:hover .capability-track,
+.capability-viewport:focus-within .capability-track {
+  animation-play-state: paused;
+}
+
+@keyframes capability-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .capability-track {
+    animation: none;
+  }
+
+  .capability-viewport {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .capability-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .capability-group[aria-hidden="true"] {
+    display: none;
+  }
 }
 
 .about-grid,
@@ -934,21 +1064,10 @@ body {
 }
 
 .site-footer {
+  width: 100%;
   background: var(--color-charcoal);
   color: var(--color-light-muted);
-  padding: 80px 20px 40px;
-}
-
-@media (min-width: 768px) {
-  .site-footer {
-    padding: 80px 40px 40px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .site-footer {
-    padding: 80px 80px 40px;
-  }
+  padding: 80px 0 40px;
 }
 
 .footer-grid {

@@ -140,103 +140,126 @@
         />
         <div class="hero-overlay" aria-hidden="true"></div>
 
-        <div class="site-header">
-          <a class="logo-badge" href="/" aria-label="DCP Construction home">
-            <img src="/images/dcp-logo.svg" width="152" height="59" alt="DCP Construction" />
-          </a>
-          <div class="header-spacer" aria-hidden="true"></div>
-          <nav class="nav-pill" aria-label="Primary">
-            <div class="nav-pill-links">
+        <div class="content-shell hero-shell">
+          <div class="site-header">
+            <a class="logo-badge" href="/" aria-label="DCP Construction home">
+              <img src="/images/dcp-logo.svg" width="152" height="59" alt="DCP Construction" />
+            </a>
+            <div class="header-spacer" aria-hidden="true"></div>
+            <nav class="nav-pill" aria-label="Primary">
+              <div class="nav-pill-links">
+                <a href="/">Home</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+              </div>
+              <a class="btn btn-orange" href="#contact">
+                Request a Bid
+                <span class="btn-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </a>
+            </nav>
+            <button
+              class="menu-toggle"
+              type="button"
+              data-menu-toggle
+              aria-expanded="false"
+              aria-controls="mobile-nav"
+              aria-label="Open menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="Mobile">
               <a href="/">Home</a>
               <a href="#services">Services</a>
               <a href="#projects">Projects</a>
               <a href="#about">About</a>
               <a href="#contact">Contact</a>
-            </div>
-            <a class="btn btn-orange" href="#contact">
-              Request a Bid
-              <span class="btn-arrow" aria-hidden="true">
-                <svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
-            </a>
-          </nav>
-          <button
-            class="menu-toggle"
-            type="button"
-            data-menu-toggle
-            aria-expanded="false"
-            aria-controls="mobile-nav"
-            aria-label="Open menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-          <nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="Mobile">
-            <a href="/">Home</a>
-            <a href="#services">Services</a>
-            <a href="#projects">Projects</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <a class="btn btn-orange" href="#contact">
-              Request a Bid
-              <span class="btn-arrow" aria-hidden="true">
-                <svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
-            </a>
-          </nav>
-        </div>
+              <a class="btn btn-orange" href="#contact">
+                Request a Bid
+                <span class="btn-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </a>
+            </nav>
+          </div>
 
-        <div class="hero-content">
-          <span class="chip" style="background: var(--color-chip-dark); color: #fff">
-            <span class="chip-dot">●</span>&nbsp;&nbsp;COMMERCIAL &amp; INDUSTRIAL INTERIORS
-          </span>
-          <h1>Commercial Interior Construction That Keeps Projects Moving.</h1>
-          <p class="hero-lead">
-            A coordinated interior build-out partner with multiple trades under one scope for commercial and
-            industrial projects across Houston and surrounding Texas markets.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-orange" href="#contact">
-              Request a Bid
-              <span class="btn-arrow" aria-hidden="true">
-                <svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
-            </a>
-            <a class="btn btn-ghost" href="#services">
-              View Services
-              <span class="btn-arrow" aria-hidden="true">
-                <svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
-            </a>
+          <div class="hero-content">
+            <span class="chip" style="background: var(--color-chip-dark); color: #fff">
+              <span class="chip-dot">●</span>&nbsp;&nbsp;COMMERCIAL &amp; INDUSTRIAL INTERIORS
+            </span>
+            <h1>
+              Commercial Interior<br />
+              Construction That<br />
+              Keeps Projects Moving.
+            </h1>
+            <div class="hero-copy-actions">
+              <p class="hero-lead">
+                A coordinated interior build-out partner with multiple trades under one scope for commercial and
+                industrial projects across Houston and surrounding Texas markets.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-orange" href="#contact">
+                  Request a Bid
+                  <span class="btn-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </a>
+                <a class="btn btn-ghost" href="#services">
+                  View Services
+                  <span class="btn-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </header>
 
       <main id="main">
         <section class="capability-strip" aria-label="Interior capabilities">
-          <span class="chip" style="background: var(--color-border-light)">
-            <span class="chip-dot">●</span>&nbsp;&nbsp;INTERIOR CAPABILITIES
-          </span>
-          <div class="capability-track">
-            <a class="capability-item" href="#services">Interior Demolition</a>
-            <a class="capability-item" href="#services">Metal Stud Framing</a>
-            <a class="capability-item" href="#services">Drywall / Tape &amp; Float</a>
-            <a class="capability-item" href="#services">Acoustical Ceilings</a>
-            <a class="capability-item" href="#services">Painting</a>
-            <a class="capability-item" href="#services">Doors / Frames / Hardware</a>
+          <div class="content-shell capability-inner">
+            <span class="chip" style="background: var(--color-border-light)">
+              <span class="chip-dot">●</span>&nbsp;&nbsp;INTERIOR CAPABILITIES
+            </span>
+            <div class="capability-viewport">
+              <div class="capability-track">
+                <div class="capability-group">
+                  <a class="capability-item" href="#services">Interior Demolition</a>
+                  <a class="capability-item" href="#services">Metal Stud Framing</a>
+                  <a class="capability-item" href="#services">Drywall / Tape &amp; Float</a>
+                  <a class="capability-item" href="#services">Acoustical Ceilings</a>
+                  <a class="capability-item" href="#services">Painting</a>
+                  <a class="capability-item" href="#services">Doors / Frames / Hardware</a>
+                </div>
+                <div class="capability-group" aria-hidden="true">
+                  <a class="capability-item" href="#services" tabindex="-1">Interior Demolition</a>
+                  <a class="capability-item" href="#services" tabindex="-1">Metal Stud Framing</a>
+                  <a class="capability-item" href="#services" tabindex="-1">Drywall / Tape &amp; Float</a>
+                  <a class="capability-item" href="#services" tabindex="-1">Acoustical Ceilings</a>
+                  <a class="capability-item" href="#services" tabindex="-1">Painting</a>
+                  <a class="capability-item" href="#services" tabindex="-1">Doors / Frames / Hardware</a>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         <section class="section-pad" id="about">
+          <div class="content-shell">
           <div class="about-grid">
             <div>
               <span class="chip" style="background: var(--color-border-light)">
@@ -264,9 +287,11 @@
               </a>
             </div>
           </div>
+          </div>
         </section>
 
         <section class="section-pad" id="services" style="background: var(--color-surface)">
+          <div class="content-shell">
           <div class="services-header">
             <div>
               <span class="chip" style="background: var(--color-border-light)">
@@ -421,9 +446,11 @@
               </div>
             </article>
           </div>
+          </div>
         </section>
 
         <section class="section-pad work-section" id="projects">
+          <div class="content-shell">
           <div class="work-header">
             <div>
               <span class="chip" style="background: var(--color-chip-dark); color: #fff">
@@ -487,9 +514,11 @@
               </span>
             </a>
           </div>
+          </div>
         </section>
 
         <section class="section-pad" id="process">
+          <div class="content-shell">
           <span class="chip" style="background: var(--color-border-light)">
             <span class="chip-dot">●</span>&nbsp;&nbsp;OUR PROCESS
           </span>
@@ -527,9 +556,11 @@
               <p>Coordinate the next estimating conversation.</p>
             </article>
           </div>
+          </div>
         </section>
 
         <section class="section-pad faq-section" id="faq">
+          <div class="content-shell">
           <div class="faq-grid">
             <div>
               <span class="chip" style="background: var(--color-border-light)">
@@ -583,9 +614,11 @@
               </details>
             </div>
           </div>
+          </div>
         </section>
 
         <section class="section-pad" id="contact">
+          <div class="content-shell">
           <div class="bid-panel">
             <div class="bid-grid">
               <div>
@@ -678,55 +711,58 @@
               </form>
             </div>
           </div>
+          </div>
         </section>
       </main>
 
       <footer class="site-footer">
-        <div class="footer-grid">
-          <div>
-            <a class="footer-logo" href="/" aria-label="DCP Construction home">
-              <img src="/images/dcp-logo-footer.svg" width="195" height="76" alt="DCP Construction" />
-            </a>
-            <p>
-              DCP Construction coordinates commercial and industrial interior trades for projects across
-              Houston and surrounding Texas markets.
-            </p>
+        <div class="content-shell">
+          <div class="footer-grid">
+            <div>
+              <a class="footer-logo" href="/" aria-label="DCP Construction home">
+                <img src="/images/dcp-logo-footer.svg" width="195" height="76" alt="DCP Construction" />
+              </a>
+              <p>
+                DCP Construction coordinates commercial and industrial interior trades for projects across
+                Houston and surrounding Texas markets.
+              </p>
+            </div>
+            <div>
+              <h2>Company</h2>
+              <p><a href="/">Home</a></p>
+              <p><a href="#services">Services</a></p>
+              <p><a href="#projects">Projects</a></p>
+              <p><a href="#about">About</a></p>
+              <p><a href="#contact">Contact</a></p>
+            </div>
+            <div class="services-links">
+              <h2>Services</h2>
+              <p>Interior Demolition</p>
+              <p>Metal Stud Framing</p>
+              <p>Drywall / Tape &amp; Float</p>
+              <p>Painting</p>
+              <p>Acoustical Ceilings</p>
+              <p>Doors / Frames / Hardware</p>
+            </div>
+            <div>
+              <h2>Houston / Texas</h2>
+              <p>Houston and surrounding<br />Texas markets</p>
+              <a class="btn btn-orange" href="#contact" style="margin-top: 16px">
+                Request a Bid
+                <span class="btn-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </a>
+            </div>
           </div>
-          <div>
-            <h2>Company</h2>
-            <p><a href="/">Home</a></p>
-            <p><a href="#services">Services</a></p>
-            <p><a href="#projects">Projects</a></p>
-            <p><a href="#about">About</a></p>
-            <p><a href="#contact">Contact</a></p>
-          </div>
-          <div class="services-links">
-            <h2>Services</h2>
-            <p>Interior Demolition</p>
-            <p>Metal Stud Framing</p>
-            <p>Drywall / Tape &amp; Float</p>
-            <p>Painting</p>
-            <p>Acoustical Ceilings</p>
-            <p>Doors / Frames / Hardware</p>
-          </div>
-          <div>
-            <h2>Houston / Texas</h2>
-            <p>Houston and surrounding<br />Texas markets</p>
-            <a class="btn btn-orange" href="#contact" style="margin-top: 16px">
-              Request a Bid
-              <span class="btn-arrow" aria-hidden="true">
-                <svg viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 7H16.5M11 1.5L16.5 7L11 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>© 2026 DCP Construction. All rights reserved.</p>
-          <div class="footer-legal">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms &amp; Conditions</a>
+          <div class="footer-bottom">
+            <p>© 2026 DCP Construction. All rights reserved.</p>
+            <div class="footer-legal">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms &amp; Conditions</a>
+            </div>
           </div>
         </div>
       </footer>
