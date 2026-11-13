@@ -6,7 +6,6 @@ const status = document.querySelector("[data-status]");
 const bidForm = document.querySelector("[data-bid-form]");
 const homeNav = document.querySelector("[data-site-nav-home]");
 const navSolidAt = document.querySelector("[data-nav-solid-at]");
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 function setStatus(message) {
   if (status) status.textContent = message;
@@ -59,7 +58,7 @@ bidForm?.addEventListener("submit", (event) => {
   bidForm.reset();
 });
 
-/* —— Capability marquee (ABPD-style JS scrollLeft — works on iOS Safari) —— */
+/* —— Capability marquee (transform + rAF — reliable on iOS Safari) —— */
 const capabilityTrack = document.querySelector("[data-capability-track]");
 const capabilityMarquee = document.querySelector("[data-capability-marquee]");
 const capabilitySet = document.querySelector("[data-capability-set]");
@@ -83,8 +82,13 @@ function stopCapabilityMarquee() {
   }
 }
 
+function paintCapabilityMarquee() {
+  if (!capabilityMarquee) return;
+  capabilityMarquee.style.transform = `translate3d(${-capabilityOffset}px, 0, 0)`;
+}
+
 function tickCapabilityMarquee(now) {
-  if (!capabilityTrack || !capabilitySetWidth || prefersReducedMotion.matches) {
+  if (!capabilityMarquee || !capabilitySetWidth) {
     capabilityFrame = 0;
     return;
   }
@@ -93,12 +97,12 @@ function tickCapabilityMarquee(now) {
   const delta = Math.min((now - capabilityLastTime) / 1000, 0.05);
   capabilityLastTime = now;
   capabilityOffset = (capabilityOffset + CAPABILITY_PX_PER_SECOND * delta) % capabilitySetWidth;
-  capabilityTrack.scrollLeft = capabilityOffset;
+  paintCapabilityMarquee();
   capabilityFrame = requestAnimationFrame(tickCapabilityMarquee);
 }
 
 function startCapabilityMarquee() {
-  if (!capabilitySetWidth || prefersReducedMotion.matches) return;
+  if (!capabilitySetWidth) return;
   if (!capabilityFrame) {
     capabilityLastTime = 0;
     capabilityFrame = requestAnimationFrame(tickCapabilityMarquee);
@@ -118,16 +122,14 @@ function updateCapabilityMarquee() {
 
   stopCapabilityMarquee();
   capabilityMarquee.querySelectorAll("[data-capability-clone]").forEach((node) => node.remove());
-  capabilityTrack.scrollLeft = 0;
   capabilityOffset = 0;
+  paintCapabilityMarquee();
 
   const setWidth = capabilitySet.offsetWidth;
   const trackWidth = capabilityTrack.clientWidth;
   if (!setWidth) return;
 
   capabilitySetWidth = setWidth;
-
-  if (prefersReducedMotion.matches) return;
 
   const copies = Math.max(2, Math.ceil((trackWidth + setWidth) / setWidth));
   for (let i = 1; i < copies; i += 1) {
@@ -153,15 +155,20 @@ if (capabilityTrack && capabilityMarquee && capabilitySet) {
   requestAnimationFrame(() => requestAnimationFrame(updateCapabilityMarquee));
   window.addEventListener("resize", onCapabilityViewportChange);
   window.addEventListener("orientationchange", () => {
-    capabilityViewportWidth = window.innerWidth;
-    updateCapabilityMarquee();
+    capabilityViewportWidth = -1;
+    onCapabilityViewportChange();
   });
   window.addEventListener("pageshow", updateCapabilityMarquee);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      capabilityLastTime = 0;
+      startCapabilityMarquee();
+    }
+  });
   document.fonts?.ready.then(updateCapabilityMarquee);
-  prefersReducedMotion.addEventListener?.("change", updateCapabilityMarquee);
 }
 
-/* —— Process streak (JS-driven so iOS does not freeze CSS keyframes) —— */
+/* —— Process streak (JS transform — iOS does not freeze like CSS keyframes) —— */
 const processStreaks = [...document.querySelectorAll(".process-step-streak")];
 const PROCESS_CYCLE_MS = 6400;
 const PROCESS_STEP_DELAY_MS = 1050;
@@ -184,7 +191,7 @@ function stopProcessStreaks() {
 }
 
 function paintProcessStreaks(now) {
-  if (!processStreaks.length || prefersReducedMotion.matches) return;
+  if (!processStreaks.length) return;
 
   processStreaks.forEach((el, index) => {
     const local = ((now - processOrigin - index * PROCESS_STEP_DELAY_MS) % PROCESS_CYCLE_MS + PROCESS_CYCLE_MS) % PROCESS_CYCLE_MS;
@@ -193,6 +200,7 @@ function paintProcessStreaks(now) {
 
     if (local > travelMs + fadeMs) {
       el.style.opacity = "0";
+      el.style.webkitTransform = "translate3d(240%, 0, 0)";
       el.style.transform = "translate3d(240%, 0, 0)";
       return;
     }
@@ -203,13 +211,15 @@ function paintProcessStreaks(now) {
     if (local < fadeMs) opacity = local / fadeMs;
     else if (local > travelMs) opacity = 1 - (local - travelMs) / fadeMs;
 
+    const transform = `translate3d(${x}%, 0, 0)`;
     el.style.opacity = String(Math.max(0, Math.min(1, opacity)));
-    el.style.transform = `translate3d(${x}%, 0, 0)`;
+    el.style.webkitTransform = transform;
+    el.style.transform = transform;
   });
 }
 
 function tickProcessStreaks(now) {
-  if (!processStreaks.length || prefersReducedMotion.matches) {
+  if (!processStreaks.length) {
     processFrame = 0;
     return;
   }
@@ -219,13 +229,7 @@ function tickProcessStreaks(now) {
 }
 
 function startProcessStreaks() {
-  if (!processStreaks.length || prefersReducedMotion.matches) {
-    processStreaks.forEach((el) => {
-      el.style.opacity = "0";
-      el.style.transform = "none";
-    });
-    return;
-  }
+  if (!processStreaks.length) return;
   if (!processFrame) {
     processFrame = requestAnimationFrame(tickProcessStreaks);
   }
@@ -250,5 +254,4 @@ if (processStreaks.length) {
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") resetProcessStreaks();
   });
-  prefersReducedMotion.addEventListener?.("change", resetProcessStreaks);
 }

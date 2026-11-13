@@ -576,46 +576,39 @@ body {
   }
 }
 
-/* Continuous marquee — JS scrollLeft (ABPD iOS-safe), soft edge fade */
+/* Continuous marquee — JS transform (iOS-safe); edge fades via overlays (not mask) */
 .capability-viewport {
   position: relative;
   min-width: 0;
   flex: 1 1 auto;
   width: 100%;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0,
-    rgba(0, 0, 0, 0.35) 36px,
-    #000 96px,
-    #000 calc(100% - 96px),
-    rgba(0, 0, 0, 0.35) calc(100% - 36px),
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0,
-    rgba(0, 0, 0, 0.35) 36px,
-    #000 96px,
-    #000 calc(100% - 96px),
-    rgba(0, 0, 0, 0.35) calc(100% - 36px),
-    transparent 100%
-  );
+}
+
+.capability-viewport::before,
+.capability-viewport::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 64px;
+  height: 100%;
+  pointer-events: none;
+}
+
+.capability-viewport::before {
+  left: 0;
+  background: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.capability-viewport::after {
+  right: 0;
+  background: linear-gradient(to left, #fff 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 .capability-track {
   max-width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: auto;
-  overscroll-behavior-x: none;
-  touch-action: pan-y;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.capability-track::-webkit-scrollbar {
-  display: none;
+  overflow: hidden;
 }
 
 .capability-marquee {
@@ -623,6 +616,7 @@ body {
   width: max-content;
   will-change: transform;
   backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 .capability-group {
@@ -656,16 +650,6 @@ body {
   color: var(--color-charcoal);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .capability-viewport {
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
-
-  .capability-group[data-capability-clone] {
-    display: none;
-  }
-}
 
 .about-grid,
 .services-header,
@@ -1007,13 +991,7 @@ body {
   will-change: transform, opacity;
   transform: translate3d(-120%, 0, 0);
   backface-visibility: hidden;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .process-step-streak {
-    opacity: 0 !important;
-    transform: none !important;
-  }
+  -webkit-transform: translate3d(-120%, 0, 0);
 }
 
 .process-step-title {
