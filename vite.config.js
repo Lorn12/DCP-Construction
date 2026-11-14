@@ -131,6 +131,7 @@ export default defineConfig({
         about: resolve(root, "about.html"),
         contact: resolve(root, "contact.html"),
         interiorDemolition: resolve(root, "interior-demolition.html"),
+        metalStudFraming: resolve(root, "metal-stud-framing.html"),
         notFound: resolve(root, "404.html"),
       },
     },
