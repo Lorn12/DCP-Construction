@@ -208,7 +208,6 @@ body {
 }
 
 .btn-dark {
-  width: 190px;
   background: var(--color-charcoal);
   color: #fff;
 }
@@ -1838,9 +1837,10 @@ a.mega-row:focus-visible {
   color: var(--color-dark-text-muted);
 }
 
-.bid-submit {
-  width: 210px;
-  margin-left: auto;
+@media (min-width: 768px) {
+  .bid-submit {
+    margin-left: auto;
+  }
 }
 
 .form-row {
@@ -2058,10 +2058,6 @@ a.mega-row:focus-visible {
   margin: 0;
   font-size: 15px;
   line-height: 21px;
-}
-
-.footer-bid {
-  width: 194px;
 }
 
 /* Beat .footer-grid a muted link styles so CTA matches other orange buttons. */
@@ -2757,14 +2753,13 @@ a.mega-row:focus-visible {
 }
 
 .sd-bullets li::before {
-  content: "▪";
+  content: "";
   position: absolute;
   left: 0;
-  top: 0;
-  color: var(--color-orange);
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 24px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  background: var(--color-orange);
 }
 
 .sd-body {
