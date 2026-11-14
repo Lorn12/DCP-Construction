@@ -132,6 +132,7 @@ export default defineConfig({
         contact: resolve(root, "contact.html"),
         interiorDemolition: resolve(root, "interior-demolition.html"),
         metalStudFraming: resolve(root, "metal-stud-framing.html"),
+        drywallTapeFloat: resolve(root, "drywall-tape-float.html"),
         notFound: resolve(root, "404.html"),
       },
     },

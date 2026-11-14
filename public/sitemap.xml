@@ -21,6 +21,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcp.graspvisual.com/drywall-tape-float.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcp.graspvisual.com/about.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
