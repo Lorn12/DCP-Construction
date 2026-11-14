@@ -1134,12 +1134,24 @@ a.mega-row:focus-visible {
   }
 }
 
+/* Spin the HTML wrapper, not the SVG — same compositor path as the capability marquee (iPhone Chrome/Safari). */
 .hero-orbit-ring {
   position: absolute;
   inset: 0;
-  transform-box: fill-box;
+  display: block;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   transform-origin: center;
   animation: hero-orbit-spin 18s linear infinite;
+  -webkit-animation: hero-orbit-spin 18s linear infinite;
+}
+
+.hero-orbit-ring svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-orbit-ring text {
@@ -1166,11 +1178,23 @@ a.mega-row:focus-visible {
 
 @keyframes hero-orbit-spin {
   from {
-    transform: rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
   }
 
   to {
-    transform: rotate(360deg);
+    transform: translate3d(0, 0, 0) rotate(360deg);
+  }
+}
+
+@-webkit-keyframes hero-orbit-spin {
+  from {
+    -webkit-transform: translate3d(0, 0, 0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0) rotate(360deg);
+    transform: translate3d(0, 0, 0) rotate(360deg);
   }
 }
 
@@ -2576,6 +2600,7 @@ a.mega-row:focus-visible {
 
   .hero-orbit-ring {
     animation: none;
+    -webkit-animation: none;
   }
 }
 
