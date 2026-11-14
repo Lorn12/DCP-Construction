@@ -1105,8 +1105,7 @@ a.mega-row:focus-visible {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(5px);
+  background: transparent;
   color: #fff;
   text-decoration: none;
   overflow: hidden;
@@ -1116,6 +1115,18 @@ a.mega-row:focus-visible {
 .hero-orbit:hover,
 .hero-orbit:focus-visible {
   transform: scale(1.08);
+}
+
+/* Frost sits beside the ring. backdrop-filter on the spinning element freezes motion on iPhone. */
+.hero-orbit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  pointer-events: none;
 }
 
 @media (min-width: 768px) {
@@ -2596,11 +2607,6 @@ a.mega-row:focus-visible {
   .view-service-arrow,
   .hero-orbit {
     transition: none;
-  }
-
-  .hero-orbit-ring {
-    animation: none;
-    -webkit-animation: none;
   }
 }
 
