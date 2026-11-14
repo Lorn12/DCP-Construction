@@ -199,11 +199,10 @@ const orbitRing = document.querySelector(".hero-orbit-ring");
 if (orbitRing) {
   const spinMs = 18000;
   const started = performance.now();
+  orbitRing.style.willChange = "transform";
   const spinOrbit = (now) => {
     const deg = (((now - started) % spinMs) / spinMs) * 360;
-    const value = `translate3d(0,0,0) rotate(${deg}deg)`;
-    orbitRing.style.transform = value;
-    orbitRing.style.webkitTransform = value;
+    orbitRing.style.transform = `rotate(${deg}deg)`;
     requestAnimationFrame(spinOrbit);
   };
   requestAnimationFrame(spinOrbit);
