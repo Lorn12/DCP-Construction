@@ -247,7 +247,7 @@ body {
   overflow: hidden;
   width: 100%;
   min-height: 658px;
-  padding: 18px 0 94px;
+  padding: 18px 0 136px;
   color: #fff;
 }
 
@@ -1093,6 +1093,85 @@ a.mega-row:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+}
+
+.hero-orbit {
+  position: absolute;
+  z-index: 3;
+  right: var(--page-gutter);
+  bottom: 18px;
+  display: grid;
+  place-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(5px);
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.35s ease;
+}
+
+.hero-orbit:hover,
+.hero-orbit:focus-visible {
+  transform: scale(1.08);
+}
+
+@media (min-width: 768px) {
+  .hero-orbit {
+    width: 118px;
+    height: 118px;
+    bottom: 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-orbit {
+    width: 130px;
+    height: 130px;
+    right: max(28px, calc((100% - var(--content-max)) / 2));
+  }
+}
+
+.hero-orbit-ring {
+  position: absolute;
+  inset: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hero-orbit-spin 18s linear infinite;
+}
+
+.hero-orbit-ring text {
+  fill: #fff;
+  font-family: var(--font-sans);
+}
+
+.hero-orbit-arrow {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  pointer-events: none;
+}
+
+.hero-orbit-arrow svg {
+  display: block;
+  width: 26px;
+  height: 20px;
+  transform: rotate(-45deg);
+}
+
+@keyframes hero-orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .capability-strip {
@@ -2490,8 +2569,13 @@ a.mega-row:focus-visible {
   }
 
   .btn,
-  .view-service-arrow {
+  .view-service-arrow,
+  .hero-orbit {
     transition: none;
+  }
+
+  .hero-orbit-ring {
+    animation: none;
   }
 }
 
