@@ -1108,7 +1108,6 @@ a.mega-row:focus-visible {
   background: transparent;
   color: #fff;
   text-decoration: none;
-  overflow: hidden;
   transition: transform 0.35s ease;
 }
 
@@ -1145,18 +1144,14 @@ a.mega-row:focus-visible {
   }
 }
 
-/* Spin the HTML wrapper, not the SVG — same compositor path as the capability marquee (iPhone Chrome/Safari). */
+/* Rotation is set from main.js. CSS animation does not paint on a real iPhone inside this badge. */
 .hero-orbit-ring {
   position: absolute;
   inset: 0;
   display: block;
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  transform-origin: center;
-  animation: hero-orbit-spin 18s linear infinite;
-  -webkit-animation: hero-orbit-spin 18s linear infinite;
+  transform-origin: center center;
 }
 
 .hero-orbit-ring svg {
@@ -1185,28 +1180,6 @@ a.mega-row:focus-visible {
   width: 26px;
   height: 20px;
   transform: rotate(-45deg);
-}
-
-@keyframes hero-orbit-spin {
-  from {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-
-  to {
-    transform: translate3d(0, 0, 0) rotate(360deg);
-  }
-}
-
-@-webkit-keyframes hero-orbit-spin {
-  from {
-    -webkit-transform: translate3d(0, 0, 0) rotate(0deg);
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: translate3d(0, 0, 0) rotate(360deg);
-    transform: translate3d(0, 0, 0) rotate(360deg);
-  }
 }
 
 .capability-strip {

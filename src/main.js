@@ -195,6 +195,20 @@ desktopNav.addEventListener("change", () => {
   closeMobileNav();
 });
 
+const orbitRing = document.querySelector(".hero-orbit-ring");
+if (orbitRing) {
+  const spinMs = 18000;
+  const started = performance.now();
+  const spinOrbit = (now) => {
+    const deg = (((now - started) % spinMs) / spinMs) * 360;
+    const value = `translate3d(0,0,0) rotate(${deg}deg)`;
+    orbitRing.style.transform = value;
+    orbitRing.style.webkitTransform = value;
+    requestAnimationFrame(spinOrbit);
+  };
+  requestAnimationFrame(spinOrbit);
+}
+
 if (homeNav && navSolidAt) {
   syncHomeNavSolid();
   window.addEventListener("scroll", syncHomeNavSolid, { passive: true });
